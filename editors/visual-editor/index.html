@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar class="astro-xxejmy22"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>The visual editor | sc-cms Guide</title><link rel="canonical" href="https://studio-center.github.io/sc-cms-guide/editors/visual-editor/"/><link rel="sitemap" href="/sc-cms-guide/sitemap-index.xml"/><link rel="shortcut icon" href="/sc-cms-guide/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.3"/><meta name="generator" content="Starlight v0.42.7"/><meta property="og:title" content="The visual editor"/><meta property="og:type" content="article"/><meta property="og:url" content="https://studio-center.github.io/sc-cms-guide/editors/visual-editor/"/><meta property="og:locale" content="en"/><meta property="og:description" content="Build pages from blocks, edit text in place, and reuse patterns."/><meta property="og:site_name" content="sc-cms Guide"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Build pages from blocks, edit text in place, and reuse patterns."/><script>
+	window.StarlightThemeProvider = (() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+		return {
+			updatePickers(theme = storedTheme || 'auto') {
+				document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+					const select = picker.querySelector('select');
+					if (select) select.value = theme;
+					/** @type {HTMLTemplateElement | null} */
+					const tmpl = document.querySelector(`#theme-icons`);
+					const newIcon = tmpl && tmpl.content.querySelector('.' + theme);
+					if (newIcon) {
+						const oldIcon = picker.querySelector('svg.label-icon');
+						if (oldIcon) {
+							oldIcon.replaceChildren(...newIcon.cloneNode(true).childNodes);
+						}
+					}
+				});
+			},
+		};
+	})();
+</script><template id="theme-icons"><svg aria-hidden="true" class="light astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg aria-hidden="true" class="dark astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg aria-hidden="true" class="auto astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></template><link rel="stylesheet" href="/sc-cms-guide/_astro/print.ehPL0gv-.css" media="print"><link rel="stylesheet" href="/sc-cms-guide/_astro/common.DyK6cHJg.css"><style>@layer starlight.components{svg:where(.astro-xaqblwcq){color:var(--sl-icon-color);font-size:var(--sl-icon-size,1em);width:1em;height:1em;overflow:visible}}
+</style><script type="module" src="/sc-cms-guide/_astro/page.cNngjUgL.js"></script></head><body class="astro-xxejmy22"><a class="sl-skip-link astro-nqsagmdt" href="#_top">Skip to content</a><div class="page sl-flex astro-qff3pb6u"><header class="header astro-qff3pb6u"><div class="header astro-42qervqv"><div class="title-wrapper sl-flex astro-42qervqv"><a href="/sc-cms-guide/" class="site-title sl-flex astro-m42gob4h"><span class="astro-m42gob4h" translate="no">sc-cms Guide</span></a></div><div class="sl-flex print:hidden astro-42qervqv"><site-search class="astro-42qervqv astro-7ae7dp6v" data-translations="{&quot;placeholder&quot;:&quot;Search&quot;}"><button data-open-modal disabled aria-label="Search" aria-keyshortcuts="Control+K" class="astro-7ae7dp6v"><svg aria-hidden="true" class="astro-7ae7dp6v astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block astro-7ae7dp6v" aria-hidden="true">Search</span><kbd class="sl-hidden md:sl-flex astro-7ae7dp6v" style="display: none;"><kbd class="astro-7ae7dp6v">Ctrl</kbd><kbd class="astro-7ae7dp6v">K</kbd></kbd></button><dialog style="padding:0" aria-label="Search" class="astro-7ae7dp6v"><div class="dialog-frame sl-flex astro-7ae7dp6v"><button data-close-modal class="sl-flex md:sl-hidden astro-7ae7dp6v">Cancel</button><div class="search-container astro-7ae7dp6v"><div id="starlight__search" class="astro-7ae7dp6v"></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/sc-cms-guide/_astro/Search.astro_astro_type_script_index_0_lang.Cn_acmhK.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group astro-42qervqv"><div class="sl-flex social-icons astro-42qervqv"></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-aclqazvv"><span class="sr-only astro-aclqazvv">Select theme</span><svg aria-hidden="true" class="icon label-icon astro-aclqazvv astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-aclqazvv"><option value="dark" class="astro-aclqazvv">Dark</option><option value="light" class="astro-aclqazvv">Light</option><option value="auto" selected class="astro-aclqazvv">Auto</option></select><svg aria-hidden="true" class="icon caret astro-aclqazvv astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){StarlightThemeProvider.updatePickers(e),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden astro-qff3pb6u" aria-label="Main"><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden astro-ftgj7irm"><svg aria-hidden="true" class="open-menu astro-ftgj7irm astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg aria-hidden="true" class="close-menu astro-ftgj7irm astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only astro-ftgj7irm">Menu</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane astro-qff3pb6u"><div class="sidebar-content sl-flex astro-qff3pb6u"><sl-sidebar-state-persist data-hash="0f3f67v" class="astro-26rdttt2"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level astro-idt7d3uj"><li class="astro-idt7d3uj"><details open class="astro-idt7d3uj"><summary class="astro-idt7d3uj"><span class="group-label astro-idt7d3uj"><span class="large astro-idt7d3uj">Start here</span></span><svg aria-hidden="true" class="caret astro-idt7d3uj astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul class="astro-idt7d3uj"><li class="astro-idt7d3uj"><a href="/sc-cms-guide/start/first-run/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Setting up a new site</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/start/signing-in/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Signing in</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/start/your-account/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Your account</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/start/two-step-sign-in/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Two-step sign-in</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/start/tour/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">A tour of the admin</span></a></li></ul></details></li><li class="astro-idt7d3uj"><details open class="astro-idt7d3uj"><summary class="astro-idt7d3uj"><span class="group-label astro-idt7d3uj"><span class="large astro-idt7d3uj">Writing and publishing</span></span><svg aria-hidden="true" class="caret astro-idt7d3uj astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul class="astro-idt7d3uj"><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/pages-and-posts/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Pages and posts</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/site-tree/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">The site tree</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/visual-editor/" aria-current="page" class="astro-idt7d3uj"><span class="astro-idt7d3uj">The visual editor</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/media/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Images and files</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/publishing/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Saving, previewing, and publishing</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/revisions/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">History and restoring</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/reviews-and-comments/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Reviews, comments, and editing together</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/languages/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Translations and languages</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/ai-assistance/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">AI assistance</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/editors/seo-and-redirects/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Search, sharing, and redirects</span></a></li></ul></details></li><li class="astro-idt7d3uj"><details open class="astro-idt7d3uj"><summary class="astro-idt7d3uj"><span class="group-label astro-idt7d3uj"><span class="large astro-idt7d3uj">Running the site</span></span><svg aria-hidden="true" class="caret astro-idt7d3uj astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul class="astro-idt7d3uj"><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/people-and-roles/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">People and roles</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/single-sign-on/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Single sign-on</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/memberships/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Memberships</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/content-types/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Content types</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/design/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Design</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/block-usage/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Where blocks are used</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/extensions/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Extensions</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/forms/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Forms</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/shop/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Shop</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/talents/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Talent directory</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/maps/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Location map</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/google-reviews/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Google reviews</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/import-wordpress/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Import from WordPress</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/import-concrete/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Import from Concrete CMS</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/settings/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Settings</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/admins/api-and-webhooks/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">API tokens and webhooks</span></a></li></ul></details></li><li class="astro-idt7d3uj"><details open class="astro-idt7d3uj"><summary class="astro-idt7d3uj"><span class="group-label astro-idt7d3uj"><span class="large astro-idt7d3uj">Hosting and operations</span></span><svg aria-hidden="true" class="caret astro-idt7d3uj astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul class="astro-idt7d3uj"><li class="astro-idt7d3uj"><a href="/sc-cms-guide/operations/install/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Installing sc-cms</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/operations/backups/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Backups and recovery</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/operations/releases/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Updates, staging, and releases</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/operations/hosting/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Hosting and scaling</span></a></li></ul></details></li><li class="astro-idt7d3uj"><details open class="astro-idt7d3uj"><summary class="astro-idt7d3uj"><span class="group-label astro-idt7d3uj"><span class="large astro-idt7d3uj">Reference</span></span><svg aria-hidden="true" class="caret astro-idt7d3uj astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="4"></sl-sidebar-restore><ul class="astro-idt7d3uj"><li class="astro-idt7d3uj"><a href="/sc-cms-guide/reference/permissions/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Roles and permissions</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/reference/glossary/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Glossary</span></a></li><li class="astro-idt7d3uj"><a href="/sc-cms-guide/reference/troubleshooting/" class="astro-idt7d3uj"><span class="astro-idt7d3uj">Troubleshooting</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex astro-bfu35b6l"><div class="social-icons astro-bfu35b6l"></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-aclqazvv"><span class="sr-only astro-aclqazvv">Select theme</span><svg aria-hidden="true" class="icon label-icon astro-aclqazvv astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-aclqazvv"><option value="dark" class="astro-aclqazvv">Dark</option><option value="light" class="astro-aclqazvv">Light</option><option value="auto" selected class="astro-aclqazvv">Auto</option></select><svg aria-hidden="true" class="icon caret astro-aclqazvv astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script></div></div></div></sl-sidebar-pane></nav><div class="main-frame astro-qff3pb6u"><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex astro-nki2zmsw"><aside class="right-sidebar-container print:hidden astro-nki2zmsw"><div class="right-sidebar astro-nki2zmsw"><div class="lg:sl-hidden astro-hmy4tz2y"><mobile-starlight-toc data-min-h="2" data-max-h="3" class="astro-xozxtpas"><nav aria-labelledby="starlight__on-this-page--mobile" class="astro-xozxtpas"><details id="starlight__mobile-toc" class="astro-xozxtpas"><summary id="starlight__on-this-page--mobile" class="sl-flex astro-xozxtpas"><span class="toggle sl-flex astro-xozxtpas">On this page<svg aria-hidden="true" class="caret astro-xozxtpas astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current astro-xozxtpas"></span></summary><div class="dropdown astro-xozxtpas"><ul class="isMobile astro-uriva32d" style="--depth: 0;"><li style="--depth: 0;" class="astro-uriva32d"><a href="#_top" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Overview</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#editing-on-the-page" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Editing on the page</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#adding-blocks" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Adding blocks</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#special-blocks" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Special blocks</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#editing-text-in-place" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Editing text in place</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#arranging-blocks" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Arranging blocks</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#settings-modes-and-layouts" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Settings, modes, and layouts</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#spacing-and-colors" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Spacing and colors</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#backgrounds-and-videos" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Backgrounds and videos</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#patterns" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Patterns</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#problems" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Problems</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/sc-cms-guide/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block astro-hmy4tz2y"><div class="sl-container astro-hmy4tz2y"><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">On this page</h2><ul class="astro-uriva32d" style="--depth: 0;"><li style="--depth: 0;" class="astro-uriva32d"><a href="#_top" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Overview</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#editing-on-the-page" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Editing on the page</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#adding-blocks" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Adding blocks</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#special-blocks" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Special blocks</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#editing-text-in-place" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Editing text in place</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#arranging-blocks" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Arranging blocks</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#settings-modes-and-layouts" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Settings, modes, and layouts</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#spacing-and-colors" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Spacing and colors</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#backgrounds-and-videos" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Backgrounds and videos</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#patterns" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Patterns</span></a></li><li style="--depth: 0;" class="astro-uriva32d"><a href="#problems" style="--depth: 0;" class="astro-uriva32d"><span style="--depth: 0;" class="astro-uriva32d">Problems</span></a></li></ul></nav></starlight-toc><script type="module" src="/sc-cms-guide/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane astro-nki2zmsw"><main data-pagefind-body class="astro-xxejmy22" lang="en" dir="ltr"><div class="content-panel astro-albsd7tq"><div class="sl-container astro-albsd7tq"><h1 id="_top" class="astro-dc6u7vou">The visual editor</h1></div></div><div class="content-panel astro-albsd7tq"><div class="sl-container astro-albsd7tq"><div class="sl-markdown-content"><p>Pages and posts are built from <strong>blocks</strong>: a heading, a paragraph, an image, a set of columns. The editor shows your real page, in your site’s theme, as you work on it.</p>
+<p>The editor has three parts:</p>
+<ul>
+<li><strong>Left panel:</strong> <strong>Outline</strong> (the blocks on the page, as a tree) and <strong>Add</strong> (the block library).</li>
+<li><strong>Canvas</strong> in the middle: the page itself. Click a block to select it.</li>
+<li><strong>Right panel:</strong> the selected block’s settings (the <em>inspector</em>), or the page settings when nothing is selected.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="editing-on-the-page">Editing on the page</h2><a class="sl-anchor-link" href="#editing-on-the-page"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Editing on the page”</span></a></div>
+<p>When you open a page, you edit it as visitors will see it, with your site’s header and footer around it. A slim bar along the top holds everything else: go back to the list, add blocks, open the outline or the page settings, undo and redo, preview on a tablet or phone, and save or publish. If you’re coming from Concrete CMS, this works like edit mode there: the page is the editor.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="adding-blocks">Adding blocks</h2><a class="sl-anchor-link" href="#adding-blocks"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Adding blocks”</span></a></div>
+<p>Move the pointer over the page. A round <strong>+</strong> appears in the margin above and below the block you’re pointing at, and at the start and end of sections, columns, and accordion items. An empty column shows <strong>Add block here</strong>. Click a <strong>+</strong> and the block library opens on the left, showing only the blocks that fit in that spot. Click one to add it there. New text blocks are ready to type into right away; other blocks open their settings so you can pick an image, a link, and so on. <strong>+ Add block</strong> in the top bar adds after the block you’ve selected, or at the end of the page. Patterns are in the same library, below the blocks.</p>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Heading</strong></td>
+<td>A section title.</td>
+</tr>
+<tr>
+<td><strong>Text</strong></td>
+<td>Paragraphs with bold, italic, and links.</td>
+</tr>
+<tr>
+<td><strong>List</strong></td>
+<td>Bulleted or numbered items, one per line.</td>
+</tr>
+<tr>
+<td><strong>Quote</strong></td>
+<td>A quotation or testimonial, with who said it.</td>
+</tr>
+<tr>
+<td><strong>Image</strong></td>
+<td>A photo or illustration, with alt text and a caption. Optionally a link, “Enlarge when clicked”, or a second image shown on hover.</td>
+</tr>
+<tr>
+<td><strong>Gallery</strong></td>
+<td>Several images as a grid, a masonry wall, or a slider. Optionally shows captions and opens images larger when clicked.</td>
+</tr>
+<tr>
+<td><strong>Button</strong></td>
+<td>A call to action: a link styled as a button.</td>
+</tr>
+<tr>
+<td><strong>Embed</strong></td>
+<td>A video, map, or post from YouTube, Vimeo, Wistia, Simian, Google Maps, Facebook, or Instagram. Paste a link or the embed code.</td>
+</tr>
+<tr>
+<td><strong>Divider</strong></td>
+<td>A horizontal line.</td>
+</tr>
+<tr>
+<td><strong>Spacer</strong></td>
+<td>Extra vertical space.</td>
+</tr>
+<tr>
+<td><strong>Section</strong></td>
+<td>Groups blocks, with a width (normal, wide, full) and a background.</td>
+</tr>
+<tr>
+<td><strong>Columns</strong></td>
+<td>Side-by-side columns that stack on small screens.</td>
+</tr>
+<tr>
+<td><strong>Accordion</strong></td>
+<td>Questions or sections that open and close, such as an FAQ.</td>
+</tr>
+<tr>
+<td><strong>Audio</strong> / <strong>Playlist</strong></td>
+<td>An MP3 with a player; a playlist groups several.</td>
+</tr>
+<tr>
+<td><strong>Popup</strong></td>
+<td>A button that opens blocks (or a synced pattern) in a popup.</td>
+</tr>
+<tr>
+<td><strong>Feature</strong></td>
+<td>An icon or small image with a title, a few words, and a link.</td>
+</tr>
+<tr>
+<td><strong>Content list</strong></td>
+<td>The latest posts, testimonials, or any content type, or chosen pages side by side.</td>
+</tr>
+</tbody>
+</table>
+<p>Extensions can add more blocks, such as a contact form or a <strong>Buy button</strong>. They appear in the library while the extension is active.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="special-blocks">Special blocks</h2><a class="sl-anchor-link" href="#special-blocks"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Special blocks”</span></a></div>
+<ul>
+<li><strong>Accordions.</strong> Each item has a title (double-click to edit it) and holds any blocks. Turn on <strong>First item starts open</strong> or <strong>Only one open at a time</strong>. Choose the <strong>Title heading level</strong> that fits your page: one level below the heading above the accordion.</li>
+<li><strong>Embeds.</strong> Paste the address of the video or map, or the whole embed code the site gives you. Only the address is kept. The <strong>Title</strong> is required: it’s what screen readers announce. Pick a <strong>Shape</strong>, or <strong>Fixed height</strong> for maps and Simian reels. Links from other sites are refused.</li>
+<li><strong>Popups.</strong> The popup opens when visitors click the button and closes with <strong>Close</strong>, Esc, or a click outside. Popups can’t open by themselves after a delay or when someone is about to leave; that needs scripts, which sc-cms doesn’t add to your pages.</li>
+<li><strong>Columns.</strong> Pick a layout (two equal, narrow + wide, wide + narrow, sidebar + wide, wide + sidebar, three, four, or six equal), or type your own widths out of 12 under <strong>Custom widths</strong>, like <code dir="auto">3 + 9</code> or <code dir="auto">2 + 8 + 2</code>. You can have up to six columns, and the widths must add up to 12. Choosing more widths adds empty columns; the editor never deletes one, so delete columns you don’t need yourself. <strong>Stack columns on</strong> chooses whether columns stack on tablets and phones, or only on phones.</li>
+<li><strong>Galleries.</strong> <strong>Columns</strong> goes from 1 to 8. Phones show two images (one for a single column), tablets up to four, and wide screens all of them. For the slider it’s how many images show at once.</li>
+<li><strong>Content lists.</strong> Choose <strong>The latest items</strong> of a content type (optionally only one category or tag, in the order you pick), or <strong>Items I choose</strong>. <strong>Quotes</strong> suits testimonials. <strong>Side by side</strong> shows the full content of the chosen pages, for comparisons. Lists show published items in the page’s language and update when you publish.
+<ul>
+<li>To show only some items, choose a field under <strong>Only items where</strong> (for example Style or Language) and a value under <strong>is or includes</strong>. It works together with the category and tag filters.</li>
+<li><strong>Show page numbers</strong> turns <strong>How many</strong> into the number per page and adds previous, next, and numbered links under the list.</li>
+<li><strong>Show as a slider</strong> (Design mode) puts the items in one row that visitors swipe or scroll, which suits rotating testimonials. Sliders don’t move by themselves.</li>
+</ul>
+</li>
+<li><strong>Animation</strong> (Design mode). <strong>When it scrolls into view</strong> fades or slides a block in as visitors scroll to it. Visitors whose device asks for less motion, and browsers that don’t support it, simply see the block.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="editing-text-in-place">Editing text in place</h2><a class="sl-anchor-link" href="#editing-text-in-place"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Editing text in place”</span></a></div>
+<p>Double-click any text to type into it. A small toolbar appears above it:</p>
+<ul>
+<li><strong>B</strong> for bold and <em>I</em> for italic (or Ctrl+B and Ctrl+I).</li>
+<li>The link button (or Ctrl+K) adds a link: type an address like <code dir="auto">/contact</code> or <code dir="auto">https://…</code>, or pick one of your pages.</li>
+<li>On Text, <strong>Heading</strong> or <strong>List</strong> turns the paragraph into one. On a heading, choose its level.</li>
+<li><strong>Done</strong> (or Esc) finishes.</li>
+</ul>
+<p>Press Enter for a new paragraph and Shift+Enter for a line break. When you paste from Word or Google Docs, bold, italic, and links come along; other styling is left behind so the page keeps your site’s look.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="arranging-blocks">Arranging blocks</h2><a class="sl-anchor-link" href="#arranging-blocks"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Arranging blocks”</span></a></div>
+<p>Point at a block to see its toolbar:</p>
+<ul>
+<li><strong>Edit</strong> opens its settings on the right.</li>
+<li>The arrows move it up or down; Duplicate makes a copy; the bin deletes it (Undo brings it back).</li>
+<li><strong>⋯</strong> has more: design and layout options, selecting the block around it, adding a block before or after, and saving it as a pattern.</li>
+</ul>
+<p>To move a block somewhere else, drag it by the dotted handle at the left of its toolbar. A line shows where it will land, even inside another column or section. With the keyboard, select a block in <strong>Outline</strong> and use Alt+↑ and Alt+↓; Enter opens its settings.</p>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl/⌘ + Z</td>
+<td>Undo</td>
+</tr>
+<tr>
+<td>Shift + Ctrl/⌘ + Z, or Ctrl/⌘ + Y</td>
+<td>Redo</td>
+</tr>
+<tr>
+<td>Alt + ↑ / ↓</td>
+<td>Move the selected block</td>
+</tr>
+<tr>
+<td>Ctrl/⌘ + D</td>
+<td>Duplicate</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>Remove</td>
+</tr>
+<tr>
+<td>Alt + F10</td>
+<td>Go to the block toolbar</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>Deselect or close</td>
+</tr>
+</tbody>
+</table>
+<p>The header and footer are shared by every page, so they’re greyed out here. If you can change the site’s design, <strong>Edit header</strong> or <strong>Edit footer</strong> takes you to them.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="settings-modes-and-layouts">Settings, modes, and layouts</h2><a class="sl-anchor-link" href="#settings-modes-and-layouts"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Settings, modes, and layouts”</span></a></div>
+<p><strong>Page settings</strong> holds everything about the page that isn’t on it: title, address, and parent page; fields, categories, and visibility; publishing, scheduling, and review; history, comments, translations, and AI suggestions. Block settings open in the same panel. Click <strong>Pin</strong> to keep it open beside the page while you work.</p>
+<p><strong>Content</strong>, <strong>Design</strong>, and <strong>Developer</strong> choose how much the settings show: just words and pictures, also layout and style (including <strong>Visibility</strong>: hide on phones, tablets, or desktops), or also anchors and CSS classes. <strong>Desktop</strong>, <strong>Tablet</strong>, and <strong>Phone</strong> preview the page at different screen sizes.</p>
+<p>Prefer the old layout with the outline and settings always showing? Click <strong>Panels</strong> in the top bar. The editor remembers your choice on this computer, and you can switch back at any time.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="spacing-and-colors">Spacing and colors</h2><a class="sl-anchor-link" href="#spacing-and-colors"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Spacing and colors”</span></a></div>
+<p>Every block has a <strong>Spacing and colors</strong> panel in its settings:</p>
+<ul>
+<li><strong>Spacing</strong>: space above, below, and beside the block, inside or outside its edge, in pixels. Space outside can be negative, to pull a block closer to the one before it.</li>
+<li><strong>Colors</strong>: the text, link, and background color. Pick one of your theme’s colors, so the block follows the theme if it changes, or enter an exact color.</li>
+<li><strong>Border</strong>, <strong>rounded corners</strong>, <strong>alignment</strong>, and <strong>text size</strong>.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="backgrounds-and-videos">Backgrounds and videos</h2><a class="sl-anchor-link" href="#backgrounds-and-videos"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Backgrounds and videos”</span></a></div>
+<p>A <strong>Section</strong> can stretch <strong>edge to edge</strong> and have a <strong>background image</strong> or a <strong>background video</strong>. Background videos play silently on a loop. Visitors who’ve asked their device for less motion see the image instead, so give the section an image too. Add a <strong>shade</strong> to keep text readable, a <strong>minimum height</strong>, and a narrower, centered <strong>content width</strong>.</p>
+<p>To show a video people can play, add the <strong>Video file</strong> block and choose a video from the media library. Videos on YouTube or Vimeo go in the <strong>Embed</strong> block.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="patterns">Patterns</h2><a class="sl-anchor-link" href="#patterns"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Patterns”</span></a></div>
+<p>A <strong>pattern</strong> is a ready-made group of blocks. The library includes <strong>Hero</strong>, <strong>Testimonial</strong>, <strong>Pricing</strong>, <strong>Team</strong>, <strong>FAQ</strong>, and <strong>Contact</strong>, plus any your team has saved.</p>
+<p>To save your own, select a block (often a Section) and use <strong>⋯ → Save as pattern</strong> in its toolbar, or <strong>Save as pattern</strong> in the inspector:</p>
+<ul>
+<li><strong>Synced</strong> (the default): every page using the pattern shows the same content. Editing the pattern updates them all. Use <strong>Edit pattern</strong> to change it, or <strong>Detach</strong> to turn one copy into ordinary editable blocks.</li>
+<li><strong>Not synced</strong>: inserting the pattern makes an independent copy.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="problems">Problems</h2><a class="sl-anchor-link" href="#problems"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Problems”</span></a></div>
+<p>If a block has a problem, such as an image with no alt text, it’s listed above the page. Click the problem to jump to the block.</p>
+</div><footer class="sl-flex astro-5kwwicmu"><div class="meta sl-flex astro-5kwwicmu"><p>Last updated: <time datetime="2026-10-30T16:14:57.000Z">Oct 30, 2026</time></p></div><div class="pagination-links print:hidden astro-uhqraytd" dir="ltr"><a href="/sc-cms-guide/editors/site-tree/" rel="prev" class="astro-uhqraytd"><svg aria-hidden="true" class="astro-uhqraytd astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span class="astro-uhqraytd">Previous<br class="astro-uhqraytd"><span class="link-title astro-uhqraytd">The site tree</span></span></a><a href="/sc-cms-guide/editors/media/" rel="next" class="astro-uhqraytd"><svg aria-hidden="true" class="astro-uhqraytd astro-xaqblwcq" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span class="astro-uhqraytd">Next<br class="astro-uhqraytd"><span class="link-title astro-uhqraytd">Images and files</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>
